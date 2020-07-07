@@ -1,0 +1,42 @@
+const express = require('express');
+const apiRouter = express.Router(); 
+
+
+//data
+// ****************************************
+const reservationData = require('../data/reservationData')
+const waitListData = require('../data/waitlistData')
+// ****************************************
+
+
+apiRouter.get('/tables', (req, res) => {
+ res.json(reservationData); 
+})
+
+apiRouter.get('/waitlist', (req, res) => {
+ res.send('/waitlist'); 
+})
+
+
+module.exports = apiRouter; 
+
+
+
+
+// const path = require('path');
+// const express = require('express');
+
+// const htmlRouter = express.Router(); 
+
+
+// htmlRouter.get('/notes', (req, res, next) => {
+//     res.sendFile(path.join(__dirname, "../public/notes.html")); 
+// }); 
+
+
+// htmlRouter.get('/', (req, res, next) => {
+//     res.sendFile(path.join(__dirname, "../public/index.html")); 
+// }); 
+
+
+// module.exports = htmlRouter; 

@@ -1,7 +1,15 @@
 const express = require('express'); 
 const app = express(); 
+const morgan = require('morgan'); 
+// port to list on 
+const PORT  = process.env.PORT || 8080; 
 
-const PORT  = process.env.PORT || PORT; 
+// require Routes
+// ****************************************
+const reserveRouter = require('./routes/reserveRoute'); 
+const tablesRouter = require('./routes/tablesRoute'); 
+const apiRouter = require('./routes/apiRoute'); 
+// ****************************************
 
 
 // MIDDLEWARE
@@ -16,7 +24,16 @@ app.use(express.json());
 app.use(morgan('dev'));
 // ****************************************
 
+// hits the homepage
+app.get('/', (req, res) => {
+    res.send('home page'); 
+})
 
+// ROUTERS*********************************
+app.use('/reserve', reserveRouter);
+app.use('/tables', tablesRouter); 
+app.use('/api', apiRouter); 
+//*****************************************
 
 
 
