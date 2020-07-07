@@ -10,33 +10,16 @@ const waitListData = require('../data/waitlistData')
 
 
 apiRouter.get('/tables', (req, res) => {
+    // this gives us the reservationData 
  res.json(reservationData); 
 })
 
 apiRouter.get('/waitlist', (req, res) => {
- res.send('/waitlist'); 
+    // this gives us the waitListData 
+ res.json(waitListData); 
 })
 
 
 module.exports = apiRouter; 
 
 
-
-
-// const path = require('path');
-// const express = require('express');
-
-// const htmlRouter = express.Router(); 
-
-
-// htmlRouter.get('/notes', (req, res, next) => {
-//     res.sendFile(path.join(__dirname, "../public/notes.html")); 
-// }); 
-
-
-// htmlRouter.get('/', (req, res, next) => {
-//     res.sendFile(path.join(__dirname, "../public/index.html")); 
-// }); 
-
-
-// module.exports = htmlRouter; 
